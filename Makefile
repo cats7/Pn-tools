@@ -1,7 +1,7 @@
 #############################################################################################
 #                                                                                           #
 #     This is Makefile.                                                                     #
-#     Copyleft, 2016, <info@7cats.biz>, sasha00s.                                           #
+#     Copyleft, 2016, <info@7cats.biz>, cats7.                                              #
 #                                                                                           #
 #     This program is free software; you can redistribute it and/or modify it under the     #
 #  terms of the GNU General Public License as published by the Free Software Foundation;    #
