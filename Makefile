@@ -23,7 +23,7 @@ OBJECTS01 := pn-gen.o
 CFLAGS    := -std=gnu99
 AFLAGS    :=
 
-.PHONY: license clean cleanall
+.PHONY: license gnu-gpl copying warranty clean cleanall
 
 #############################################################################################
 #                  Make all the top-level targets the makefile knows about.                 #
@@ -42,7 +42,12 @@ pn-gen.o:   pn-gen.c pn-gen.h
 #                                                                                           #
 #############################################################################################
 license:
+gnu-gpl:
 	cat LICENSE
+
+copying:
+warranty:
+	cat COPYING
 
 #############################################################################################
 #                Delete all files that are normally created by running make.                #
