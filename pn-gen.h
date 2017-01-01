@@ -29,14 +29,22 @@
  *                                *** Header Files ***                                       *
  *********************************************************************************************/
 
+#include <errno.h>
+#include <stddef.h>
 #include <stdlib.h>
-//#include <pthread.h>
+#include <limits.h>
 #include <signal.h>
-
+//#include <pthread.h>
+#include <time.h>
 
 /*********************************************************************************************
  *                              *** Global Variables ***                                     *
  *********************************************************************************************/
+
+struct MYPRIME_FILE {
+  int Handle;
+  char *Data;
+};
 
 struct MYPRIME_STRUCT {
   struct PRIMETEST_NUMBERS Prime;
