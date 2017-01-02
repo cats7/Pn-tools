@@ -17,8 +17,10 @@ VERSION   := 0.01
 PROJECT   := pn-tools-linux
 
 TARGET01  := pn-gen
-TARGETS   := $(TARGET01)
+TARGET02  := pn-test
+TARGETS   := $(TARGET01) $(TARGET02)
 OBJECTS01 := pn-gen.o
+OBJECTS02 := pn-test.o
 
 CFLAGS    := -std=gnu99
 AFLAGS    :=
@@ -30,11 +32,19 @@ AFLAGS    :=
 #############################################################################################
 all:        $(TARGETS)
 
-$(TARGET1): $(OBJECTS01)
+$(TARGET01): $(OBJECTS01)
+	@echo Linking $@ ...
+	$(CC) $(CFLAGS) -o $@ $^
+
+$(TARGET02): $(OBJECTS02)
 	@echo Linking $@ ...
 	$(CC) $(CFLAGS) -o $@ $^
 
 pn-gen.o:   pn-gen.c pn-gen.h pn-common.h
+	@echo Compiling $< ...
+	$(CC) $(CFLAGS) -c -o $@ $<
+
+pn-test.o:  pn-test.c pn-test.h pn-common.h
 	@echo Compiling $< ...
 	$(CC) $(CFLAGS) -c -o $@ $<
 

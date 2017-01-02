@@ -1,16 +1,16 @@
 
 /*********************************************************************************************
  *                                                                                           *
- *  File: pn-common.h                                                                        *
- *  Type: Pn-common header file.                                                             *
+ *  File: pn-test.h                                                                          *
+ *  Type: Pn-test main program (pn-test.h, pn-test.c).                                       *
  *  Distribution: source/object code.                                                        *
  *  License: GNU General Public License ver3.                                                *
- *  Dependency: none.                                                                        *
+ *  Dependency: pn-calc module (pn-calc.h, pn-calc.c, pn-calc-ext.h, pn-calc-ext.asm),       *
  *  Desription: main program.                                                                *
  *                                                                                           *
  *********************************************************************************************
  *                                                                                           *
- *     This is pn-common.h file (main program).                                              *
+ *     This is pn-test.h file (main program).                                                *
  *     Copyleft, 2016, <feedback@7cats.biz>, cats7.                                          *
  *                                                                                           *
  *     This library is free software; you can redistribute it and/or modify it under the     *
@@ -22,51 +22,27 @@
  *  PARTICULAR PURPOSE.  See the GNU General Public License for more details.                *
  *                                                                                           *
  *********************************************************************************************/
-#ifndef PN_COMMON_H
-#define PN_COMMON_H
+#ifndef PN_TEST_H
+#define PN_TEST_H
 
 /*********************************************************************************************
  *                                *** Header Files ***                                       *
  *********************************************************************************************/
 
-#include <errno.h>
-#include <stddef.h>
-#include <stdlib.h>
-#include <limits.h>
-#include <string.h>
-#include <stdio.h>
-#include <sys/stat.h>
-#include <signal.h>
-#include <time.h>
+#include "pn-common.h"
 
 /*********************************************************************************************
  *                              *** Global Variables ***                                     *
  *********************************************************************************************/
 
-#define  PNCOMMON_STRING_BUFFER_SIZE                 4096
-#define  PNCOMMON_FILE_BUFFER_SIZE                  32768
-
-struct MYPRIME_NUMBERS {                            // --- * MYPRIME_NUMBERS structure * ---
-   unsigned long int Prime;
-};
-
-struct MYPRIME_TIME {                               // --- * MYPRIME_TIME structure * ---
-  time_t GMT;                                       //
-  time_t Local;                                     //
-  struct tm Broken;                                 //
-  char String[PNCOMMON_STRING_BUFFER_SIZE];         //
-};
-
-struct MYPRIME_FILE {                                // --- * MYPRIME_FILE structure * ---
-  FILE *Handle;                                      //  File-handle;
-  size_t nBytes;                                     //  New size;
-  struct stat fStat;                                 //  File attributes;
-  char Name[PNCOMMON_STRING_BUFFER_SIZE];            //  File-name;
-  char Data[PNCOMMON_FILE_BUFFER_SIZE];              //  File-buffer.
+struct MYPRIME_STRUCT {                              // --- * MYPRIME_STRUCT structure * ---
+  struct MYPRIME_NUMBERS Prime;                      //
+  struct MYPRIME_TIME Time;                          //
+  struct MYPRIME_FILE File;                          //
 };
 
 /*********************************************************************************************
  *                                *** End of File ***                                        *
  *********************************************************************************************/
-#endif // PN_COMMON
+#endif // PN_TEST
 

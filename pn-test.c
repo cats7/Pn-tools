@@ -1,19 +1,19 @@
 
 /*********************************************************************************************
  *                                                                                           *
- *  File: pn-common.h                                                                        *
- *  Type: Pn-common header file.                                                             *
+ *  File: pn-test.c                                                                          *
+ *  Type: main program.                                                                      *
  *  Distribution: source/object code.                                                        *
  *  License: GNU General Public License ver3.                                                *
- *  Dependency: none.                                                                        *
- *  Desription: main program.                                                                *
+ *  Dependency: pn-calc modulle (pn-calc.h, pn-calc.c, pn-calc-ext.h, pn-calc-ext.asm),      *
+ *  Desription: Prime Numbers tester.                                                     *
  *                                                                                           *
  *********************************************************************************************
  *                                                                                           *
- *     This is pn-common.h file (main program).                                              *
+ *     This is pn-test.c file (main program).                                                *
  *     Copyleft, 2016, <feedback@7cats.biz>, cats7.                                          *
  *                                                                                           *
- *     This library is free software; you can redistribute it and/or modify it under the     *
+ *     This program is free software; you can redistribute it and/or modify it under the     *
  *  terms of the GNU General Public License as published by the Free Software Foundation;    *
  *  either version 3 of the License, or (at your option) any later version.                  *
  *                                                                                           *
@@ -22,51 +22,42 @@
  *  PARTICULAR PURPOSE.  See the GNU General Public License for more details.                *
  *                                                                                           *
  *********************************************************************************************/
-#ifndef PN_COMMON_H
-#define PN_COMMON_H
 
 /*********************************************************************************************
  *                                *** Header Files ***                                       *
  *********************************************************************************************/
 
-#include <errno.h>
-#include <stddef.h>
-#include <stdlib.h>
-#include <limits.h>
-#include <string.h>
-#include <stdio.h>
-#include <sys/stat.h>
-#include <signal.h>
-#include <time.h>
+#include "pn-test.h"
 
 /*********************************************************************************************
  *                              *** Global Variables ***                                     *
  *********************************************************************************************/
 
-#define  PNCOMMON_STRING_BUFFER_SIZE                 4096
-#define  PNCOMMON_FILE_BUFFER_SIZE                  32768
+struct MYPRIME_STRUCT *AppData;
 
-struct MYPRIME_NUMBERS {                            // --- * MYPRIME_NUMBERS structure * ---
-   unsigned long int Prime;
-};
+/*********************************************************************************************
+ *                             *** Function Prototypes ***                                   *
+ *********************************************************************************************/
 
-struct MYPRIME_TIME {                               // --- * MYPRIME_TIME structure * ---
-  time_t GMT;                                       //
-  time_t Local;                                     //
-  struct tm Broken;                                 //
-  char String[PNCOMMON_STRING_BUFFER_SIZE];         //
-};
 
-struct MYPRIME_FILE {                                // --- * MYPRIME_FILE structure * ---
-  FILE *Handle;                                      //  File-handle;
-  size_t nBytes;                                     //  New size;
-  struct stat fStat;                                 //  File attributes;
-  char Name[PNCOMMON_STRING_BUFFER_SIZE];            //  File-name;
-  char Data[PNCOMMON_FILE_BUFFER_SIZE];              //  File-buffer.
-};
+/*********************************************************************************************
+ *                                *** main Function ***                                      *
+ *********************************************************************************************/
+
+int main (int argc, char *argv[]){
+
+  /* Memory allocation */
+  if(!(AppData=(struct MYPRIME_STRUCT*)malloc(sizeof(struct MYPRIME_STRUCT))))
+  { perror("Fatal! Can`t allocate memory! Exit program.\0"); exit(EXIT_FAILURE); };
+  memset(AppData,0,sizeof(struct MYPRIME_STRUCT));
+
+
+  // <== I know that the sect "of the BAD-goto" will be against me, but folks...
+  //     this transition is simplified as the boots!
+
+  return(EXIT_SUCCESS); }
 
 /*********************************************************************************************
  *                                *** End of File ***                                        *
  *********************************************************************************************/
-#endif // PN_COMMON
 

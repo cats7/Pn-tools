@@ -5,7 +5,7 @@
  *  Type: Pn-gen main program (pn-gen.h, pn-gen.c).                                          *
  *  Distribution: source/object code.                                                        *
  *  License: GNU General Public License ver3.                                                *
- *  Dependency: PrimeTest module (primetest.h, primetect.c, primetest.asm).                  *
+ *  Dependency: pn-calc module (pn-calc.h, pn-calc.c, pn-calc-ext.h, pn-calc-ext.asm),       *
  *  Desription: main program.                                                                *
  *                                                                                           *
  *********************************************************************************************

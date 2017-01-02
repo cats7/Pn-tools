@@ -5,12 +5,12 @@
  *  Type: main program.                                                                      *
  *  Distribution: source/object code.                                                        *
  *  License: GNU General Public License ver3.                                                *
- *  Dependency: PrimeTest modulle (primetest.h, primetest.c primetest.asm)                   *
+ *  Dependency: pn-calc modulle (pn-calc.h, pn-calc.c, pn-calc-ext.h, pn-calc-ext.asm),      *
  *  Desription: Prime Numbers Generator.                                                     *
  *                                                                                           *
  *********************************************************************************************
  *                                                                                           *
- *     This is prime.c file (main program).                                                  *
+ *     This is pn-gen.c file (main program).                                                 *
  *     Copyleft, 2016, <feedback@7cats.biz>, cats7.                                          *
  *                                                                                           *
  *     This program is free software; you can redistribute it and/or modify it under the     *
@@ -33,7 +33,7 @@
  *                              *** Global Variables ***                                     *
  *********************************************************************************************/
 
-char *MemBuf;
+struct MYPRIME_STRUCT *AppData;
 
 /*********************************************************************************************
  *                             *** Function Prototypes ***                                   *
@@ -46,8 +46,10 @@ char *MemBuf;
 
 int main (int argc, char *argv[]){
 
-  if(!(MemBuf=(char*)malloc(4094)))
-  {  };
+  /* Memory allocation */
+  if(!(AppData=(struct MYPRIME_STRUCT*)malloc(sizeof(struct MYPRIME_STRUCT))))
+  { perror("Fatal! Can`t allocate memory! Exit program.\0"); exit(EXIT_FAILURE); };
+  memset(AppData,0,sizeof(struct MYPRIME_STRUCT));
 
 
   // <== I know that the sect "of the BAD-goto" will be against me, but folks...
