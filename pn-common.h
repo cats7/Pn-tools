@@ -11,7 +11,7 @@
  *********************************************************************************************
  *                                                                                           *
  *     This is pn-common.h file (main program).                                              *
- *     Copyleft, 2016, <info@7cats.biz>, cats7.                                              *
+ *     Copyleft, 2016, <feedback@7cats.biz>, cats7.                                          *
  *                                                                                           *
  *     This library is free software; you can redistribute it and/or modify it under the     *
  *  terms of the GNU General Public License as published by the Free Software Foundation;    *
@@ -22,8 +22,8 @@
  *  PARTICULAR PURPOSE.  See the GNU General Public License for more details.                *
  *                                                                                           *
  *********************************************************************************************/
-#ifndef PN-COMMON_H
-#define PN-COMMON_H
+#ifndef PN_COMMON_H
+#define PN_COMMON_H
 
 /*********************************************************************************************
  *                                *** Header Files ***                                       *
@@ -35,6 +35,7 @@
 #include <limits.h>
 #include <string.h>
 #include <stdio.h>
+#include <sys/stat.h>
 #include <signal.h>
 #include <time.h>
 
@@ -45,29 +46,27 @@
 #define  PNCOMMON_STRING_BUFFER_SIZE                 4096
 #define  PNCOMMON_FILE_BUFFER_SIZE                  32768
 
-struct MYPRIME_TIME {                               // --- *  * ---
+struct MYPRIME_NUMBERS {                            // --- * MYPRIME_NUMBERS structure * ---
+   unsigned long int Prime;
+};
+
+struct MYPRIME_TIME {                               // --- * MYPRIME_TIME structure * ---
   time_t GMT;                                       //
   time_t Local;                                     //
   struct tm Broken;                                 //
   char String[PNCOMMON_STRING_BUFFER_SIZE];         //
 };
 
-struct MYPRIME_FILE {                                // --- *  * ---
-  FILE *Handle;                                      //
-  size_t nBytes;                                     // New size;
-  struct stat fStat;                                 // File attributes;
-  char Name[PNCOMMON_STRING_BUFFER_SIZE];            // File-name;
-  char Data[PNCOMMON_FILE_BUFFER_SIZE];              // File-buffer.
-};
-
-struct MYPRIME_STRUCT {                              //
-  struct PRIMETEST_NUMBERS Prime;                    //
-  struct MYPRIME_TIME Time;                          //
-  struct MYPRIME_FILE File;                          //
+struct MYPRIME_FILE {                                // --- * MYPRIME_FILE structure * ---
+  FILE *Handle;                                      //  File-handle;
+  size_t nBytes;                                     //  New size;
+  struct stat fStat;                                 //  File attributes;
+  char Name[PNCOMMON_STRING_BUFFER_SIZE];            //  File-name;
+  char Data[PNCOMMON_FILE_BUFFER_SIZE];              //  File-buffer.
 };
 
 /*********************************************************************************************
  *                                *** End of File ***                                        *
  *********************************************************************************************/
-#endif // PN-COMMON
+#endif // PN_COMMON
 

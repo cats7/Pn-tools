@@ -11,7 +11,7 @@
  *********************************************************************************************
  *                                                                                           *
  *     This is prime.c file (main program).                                                  *
- *     Copyleft, 2016, <info@7cats.biz>, cats7.                                              *
+ *     Copyleft, 2016, <feedback@7cats.biz>, cats7.                                          *
  *                                                                                           *
  *     This program is free software; you can redistribute it and/or modify it under the     *
  *  terms of the GNU General Public License as published by the Free Software Foundation;    *
@@ -48,11 +48,11 @@ int main (int argc, char *argv[]){
 
   if(!(MemBuf=(char*)malloc(4094)))
   {  };
-  
-  
+
+
   // <== I know that the sect "of the BAD-goto" will be against me, but folks...
   //     this transition is simplified as the boots!
-  
+
   return(EXIT_SUCCESS); }
 
 /*********************************************************************************************

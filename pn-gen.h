@@ -11,7 +11,7 @@
  *********************************************************************************************
  *                                                                                           *
  *     This is pn-gen.h file (main program).                                                 *
- *     Copyleft, 2016, <info@7cats.biz>, cats7.                                              *
+ *     Copyleft, 2016, <feedback@7cats.biz>, cats7.                                          *
  *                                                                                           *
  *     This library is free software; you can redistribute it and/or modify it under the     *
  *  terms of the GNU General Public License as published by the Free Software Foundation;    *
@@ -22,8 +22,8 @@
  *  PARTICULAR PURPOSE.  See the GNU General Public License for more details.                *
  *                                                                                           *
  *********************************************************************************************/
-#ifndef PN-GEN_H
-#define PN-GEN_H
+#ifndef PN_GEN_H
+#define PN_GEN_H
 
 /*********************************************************************************************
  *                                *** Header Files ***                                       *
@@ -35,9 +35,14 @@
  *                              *** Global Variables ***                                     *
  *********************************************************************************************/
 
+struct MYPRIME_STRUCT {                              // --- * MYPRIME_STRUCT structure * ---
+  struct MYPRIME_NUMBERS Prime;                      //
+  struct MYPRIME_TIME Time;                          //
+  struct MYPRIME_FILE File;                          //
+};
 
 /*********************************************************************************************
  *                                *** End of File ***                                        *
  *********************************************************************************************/
-#endif // PN-GEN
+#endif // PN_GEN
 

@@ -1,7 +1,7 @@
 #############################################################################################
 #                                                                                           #
 #     This is Makefile.                                                                     #
-#     Copyleft, 2016, <info@7cats.biz>, cats7.                                              #
+#     Copyleft, 2016, <feedback@7cats.biz>, cats7.                                          #
 #                                                                                           #
 #     This program is free software; you can redistribute it and/or modify it under the     #
 #  terms of the GNU General Public License as published by the Free Software Foundation;    #
@@ -23,7 +23,7 @@ OBJECTS01 := pn-gen.o
 CFLAGS    := -std=gnu99
 AFLAGS    :=
 
-.PHONY: license gnu-gpl copying warranty clean cleanall
+.PHONY: help gnu-gpl license warranty copying clean cleanall
 
 #############################################################################################
 #                  Make all the top-level targets the makefile knows about.                 #
@@ -41,13 +41,20 @@ pn-gen.o:   pn-gen.c pn-gen.h pn-common.h
 #############################################################################################
 #                                                                                           #
 #############################################################################################
-license:
+help:
+	@cat README.md
+
 gnu-gpl:
-	cat LICENSE
+	@cat LICENSE
+
+license:
+	@cat LICENSE
+
+warranty:
+	@cat COPYING
 
 copying:
-warranty:
-	cat COPYING
+	@cat COPYING
 
 #############################################################################################
 #                Delete all files that are normally created by running make.                #
