@@ -14,7 +14,7 @@
 #############################################################################################
 
 VERSION   := 0.01
-PROJECT   := pn-test-linux
+PROJECT   := pn-tools-linux
 
 TARGET01  := pn-gen
 TARGETS   := $(TARGET01)
@@ -34,7 +34,7 @@ $(TARGET1): $(OBJECTS01)
 	@echo Linking $@ ...
 	$(CC) $(CFLAGS) -o $@ $^
 
-pn-gen.o:   pn-gen.c pn-gen.h
+pn-gen.o:   pn-gen.c pn-gen.h pn-common.h
 	@echo Compiling $< ...
 	$(CC) $(CFLAGS) -c -o $@ $<
 
