@@ -1,8 +1,8 @@
 
 /*********************************************************************************************
  *                                                                                           *
- *  File: pn-gen.h                                                                           *
- *  Type: Pn-gen main program (pn-gen.h, pn-gen.c).                                          *
+ *  File: pn-common.h                                                                        *
+ *  Type: Pn-common main program (pn-gen.h, pn-gen.c).                                       *
  *  Distribution: source/object code.                                                        *
  *  License: GNU General Public License ver3.                                                *
  *  Dependency: PrimeTest module (primetest.h, primetect.c, primetest.asm).                  *
@@ -10,7 +10,7 @@
  *                                                                                           *
  *********************************************************************************************
  *                                                                                           *
- *     This is pn-gen.h file (main program).                                                 *
+ *     This is pn-common.h file (main program).                                              *
  *     Copyleft, 2016, <info@7cats.biz>, cats7.                                              *
  *                                                                                           *
  *     This library is free software; you can redistribute it and/or modify it under the     *
@@ -22,8 +22,8 @@
  *  PARTICULAR PURPOSE.  See the GNU General Public License for more details.                *
  *                                                                                           *
  *********************************************************************************************/
-#ifndef PN-GEN_H
-#define PN-GEN_H
+#ifndef PN-COMMON_H
+#define PN-COMMON_H
 
 /*********************************************************************************************
  *                                *** Header Files ***                                       *
@@ -33,17 +33,31 @@
 #include <stddef.h>
 #include <stdlib.h>
 #include <limits.h>
+#include <string.h>
+#include <stdio.h>
 #include <signal.h>
-//#include <pthread.h>
 #include <time.h>
 
 /*********************************************************************************************
  *                              *** Global Variables ***                                     *
  *********************************************************************************************/
 
+#define  PNCOMMON_STRING_BUFFER_SIZE                 4096
+#define  PNCOMMON_FILE_BUFFER_SIZE                  32768
+
+struct MYPRIME_TIME {
+  time_t GMT;
+  time_t Local;
+  struct tm Broken;
+  char String[PNCOMMON_STRING_BUFFER_SIZE];
+};
+
 struct MYPRIME_FILE {
-  int Handle;
-  char *Data;
+  FILE *Handle;
+  size_t nBytes;                                     // New size;
+  struct stat fStat;                                 // File attributes;
+  char Name[PNCOMMON_STRING_BUFFER_SIZE];            // File-name;
+  char Data[PNCOMMON_FILE_BUFFER_SIZE];              // File-buffer.
 };
 
 struct MYPRIME_STRUCT {
@@ -55,5 +69,5 @@ struct MYPRIME_STRUCT {
 /*********************************************************************************************
  *                                *** End of File ***                                        *
  *********************************************************************************************/
-#endif // PN-GEN
+#endif // PN-COMMON
 
