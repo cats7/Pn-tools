@@ -50,6 +50,9 @@ int main (int argc, char *argv[]){
   {  };
   
   
+  // <== I know that the sect "of the BAD-goto" will be against me, but folks...
+  //     this transition is simplified as the boots!
+  
   return(EXIT_SUCCESS); }
 
 /*********************************************************************************************
